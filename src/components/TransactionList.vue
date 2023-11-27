@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <h2>Transactions</h2>
+    <ul>
+      <li>
+        Transaction
+      </li>
+    </ul>
+  </div>
+</template>

@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <h2>Income</h2>
+    <p>$0.00</p>
+  </div>
+  <div>
+    <h2>Expense</h2>
+    <p>$0.00</p>
+  </div>
+</template>
