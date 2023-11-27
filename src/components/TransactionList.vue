@@ -1,24 +1,26 @@
 <script>
 export default {
-  data() {
+  setup() {
+    const transactions = [
+      {
+        id: 1,
+        text: 'Flowers',
+        amount: -20
+      },
+      {
+        id: 2,
+        text: 'Book',
+        amount: -20
+      },
+      {
+        id: 3,
+        text: 'Salary',
+        amount: 200
+      },
+    ];
+
     return {
-      transactions: [
-        {
-          id: 1,
-          text: 'Flowers',
-          amount: -20
-        },
-        {
-          id: 2,
-          text: 'Book',
-          amount: -20
-        },
-        {
-          id: 3,
-          text: 'Salary',
-          amount: 200
-        },
-      ]
+      transactions,
     }
   }
 }
