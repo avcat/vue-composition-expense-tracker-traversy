@@ -1,29 +1,10 @@
-<script>
-export default {
-  setup() {
-    const transactions = [
-      {
-        id: 1,
-        text: 'Flowers',
-        amount: -20
-      },
-      {
-        id: 2,
-        text: 'Book',
-        amount: -20
-      },
-      {
-        id: 3,
-        text: 'Salary',
-        amount: 200
-      },
-    ];
-
-    return {
-      transactions,
-    }
+<script setup>
+const props = defineProps({
+  transactions: {
+    type: Array,
+    required: true,
   }
-}
+})
 </script>
 
 <template>
