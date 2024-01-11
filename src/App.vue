@@ -26,9 +26,23 @@ const transactions = ref([
 ]);
 
 const total = computed(() => {
-  return transactions.value.reduce((acc, transaction) => {
-    return acc + transaction;
-  }, 0);
+  return transactions.value.reduce((acc, transaction) => acc + transaction.amount, 0);
+});
+
+const income = computed(() => {
+  return transactions.value
+  .filter(transaction => transaction.amount > 0)
+  .reduce((acc, transaction) => acc + transaction.amount, 0)
+  // .toFixed(2);
+});
+
+console.info(income.value)
+
+const expenses = computed(() => {
+  return transactions.value
+  .filter(transaction => transaction.amount < 0)
+  .reduce((acc, transaction) => acc + transaction.amount, 0)
+  .toFixed(2);
 });
 </script>
 
@@ -36,7 +50,7 @@ const total = computed(() => {
   <main-header></main-header>
   <main>
     <main-balance :total="total"></main-balance>
-    <income-expense></income-expense>
+    <income-expense :income="income" :expenses="expenses"></income-expense>
     <transaction-list :transactions="transactions"></transaction-list>
     <transaction-add></transaction-add>
   </main>

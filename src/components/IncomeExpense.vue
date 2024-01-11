@@ -1,10 +1,23 @@
+<script setup>
+const props = defineProps({
+  income: {
+    type: Array,
+    required: true,
+  },
+  expenses: {
+    type: Array,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <div>
     <h2>Income</h2>
-    <p>$0.00</p>
+    <p>${{ income }}</p>
   </div>
   <div>
     <h2>Expense</h2>
-    <p>$0.00</p>
+    <p>${{ expenses }}</p>
   </div>
 </template>
