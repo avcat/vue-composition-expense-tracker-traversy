@@ -1,11 +1,11 @@
 <script setup>
 const props = defineProps({
   income: {
-    type: Array,
+    type: Number,
     required: true,
   },
   expenses: {
-    type: Array,
+    type: Number,
     required: true,
   },
 })

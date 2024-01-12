@@ -1,14 +1,31 @@
+<script setup>
+import { ref } from 'vue';
+
+const title = ref('');
+const amount = ref('');
+
+const submit = (e) => {
+  console.info(title.value, amount.value)
+}
+</script>
+
 <template>
-  <form>
+  <form @submit.prevent="submit">
     <h2>Add new transaction</h2>
     <label>
       <h3>Title</h3>
-      <input type="text">
+      <input
+        type="text"
+        v-model="title"
+      >
     </label>
     <label>
       <h3>Amount</h3>
-      <input type="number">
+      <input
+        type="number"
+        v-model="amount"
+      >
       <small>Negative - expense, positive - income.</small>
     </label>
-  </form>
-</template>
+    <button type="submit">Submit</button>
+</form></template>

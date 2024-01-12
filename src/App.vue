@@ -8,7 +8,7 @@ import TransactionAdd from './components/TransactionAdd.vue';
 import { ref, computed } from 'vue';
 
 const transactions = ref([
-  {
+  { 
     id: 1,
     text: 'Flowers',
     amount: -20
@@ -33,7 +33,7 @@ const income = computed(() => {
   return transactions.value
   .filter(transaction => transaction.amount > 0)
   .reduce((acc, transaction) => acc + transaction.amount, 0)
-  // .toFixed(2);
+  .toFixed(2);
 });
 
 console.info(income.value)
@@ -50,7 +50,7 @@ const expenses = computed(() => {
   <main-header></main-header>
   <main>
     <main-balance :total="total"></main-balance>
-    <income-expense :income="income" :expenses="expenses"></income-expense>
+    <income-expense :income="+income" :expenses="+expenses"></income-expense>
     <transaction-list :transactions="transactions"></transaction-list>
     <transaction-add></transaction-add>
   </main>
