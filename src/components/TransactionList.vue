@@ -19,7 +19,7 @@ const props = defineProps({
           expense: t.amount < 0
         }"
       >
-        <span>{{ t.text }}</span>
+        <span>{{ t.title }}</span>
         <span>{{ t.amount }}</span>
         <button>Delete</button>
       </li>

@@ -1,11 +1,29 @@
 <script setup>
 import { ref } from 'vue';
+import { useToast } from 'vue-toastification'
 
 const title = ref('');
 const amount = ref('');
+const toast = useToast()
+const emit = defineEmits([
+  'transactionSubmitted'
+])
 
 const submit = (e) => {
-  console.info(title.value, amount.value)
+  if (!title.value || !amount.value) {
+    toast.error('Both fields must be filled!')
+    return
+  }
+
+  const transactionData = {
+    title: title.value,
+    amount: parseFloat(amount.value)
+  }
+
+  emit(
+    'transactionSubmitted',
+    transactionData
+  )
 }
 </script>
 
@@ -28,4 +46,5 @@ const submit = (e) => {
       <small>Negative - expense, positive - income.</small>
     </label>
     <button type="submit">Submit</button>
-</form></template>
+  </form>
+</template>
